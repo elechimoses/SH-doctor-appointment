@@ -10,12 +10,20 @@ class Appointment extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
-        'doc_id',
-        'ticket_no',
+        'patient_id',
+        'doctor_id',
         'subject',
         'message',
-        'appointment_data',
-        'status'
+        'appointment_time'
     ];
+
+    public function doctor()
+    {
+        return $this->belongsTo(User::class,'doctor_id');
+    }
+
+    public function patient()
+    {
+        return $this->belongsTo(User::class,'patient_id');
+    }
 }

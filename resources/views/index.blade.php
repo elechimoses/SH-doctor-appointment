@@ -9,8 +9,8 @@
         <h1 class="display-4 fw-bold lh-1">Doctors without Borders</h1>
         <p class="lead">Doctors Appointment and Booking System.<br> Doctor appointment software is one of those medical technologies that actually make the lives of patients, doctors, and administration easier.</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Book an Appointment</button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Register Now</button>
+          <button type="button" class="btn btn-outline-primary btn-lg px-4 me-md-2 mr-3 fw-bold">Book an Appointment</button>
+          <a href="{{ route('login')}}" class="btn btn-outline-secondary btn-lg px-4">Register Now</a>
         </div>
       </div>
       <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
@@ -81,7 +81,7 @@
             <label class="form-label">Comment</label>
             <textarea name="comment" class="form-control" cols="30" rows="10"></textarea>
           </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
       </form>
   </div>
 

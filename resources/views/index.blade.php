@@ -19,40 +19,26 @@
       </div>
     </div>
   </div>
-
+  @php
+        $doctors = \App\Models\User::where('role', '=', 'doctor')->get();
+    @endphp
   <!--List of Doctors-->
   <div class="container">
     <div class="row">
+      @foreach($doctors as $doctor)
       <div class="col-md-4">
         <div class="card" style="width: 18rem;">
           <img src="img/dr1.jpg" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Hi, I'm Doctor Fred.</h5>
+            <h5 class="card-title">Hi, {{$doctor->fullname}}.</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="{{ route('appointment.create') }}" class="btn btn-primary">Book Appointment</a>
+            <a href="appointments/create/{{$doctor->id}}" class="btn btn-primary">Book Appointment</a>
           </div>
         </div>
       </div>
-      <div class="col-md-4">
-        <div class="card" style="width: 18rem;">
-          <img src="img/dr3.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Hi, I'm Doctor Ibrahim</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="{{ route('appointment.create') }}" class="btn btn-primary">Book Appointment</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card" style="width: 18rem;">
-          <img src="img/dr4.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Hi, I'm Doctor Babalola</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="{{ route('appointment.create') }}" class="btn btn-primary">Book Appointment</a>
-          </div>
-        </div>
-      </div>
+      @endforeach
+      
+     
     </div>
   </div>
 

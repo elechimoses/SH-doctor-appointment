@@ -6,6 +6,7 @@ use App\Http\Requests\StoreAppointmentRequest;
 use App\Http\Requests\UpdateAppointmentRequest;
 use App\Http\Requests\UpdateAppointmentTimeRequest;
 use App\Models\Appointment;
+use App\Models\User;
 
 class AppointmentController extends Controller
 {
@@ -28,9 +29,14 @@ class AppointmentController extends Controller
      *
      * @return \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function create()
+    public function create($id)
     {
-        return view('appointment.create');
+       $doctor = User::findOrFail($id);
+       $doctors = User::where('role', '=', $id)
+            ->get();
+            
+           
+        return view('appointment.create', compact('doctor'));
     }
 
     /**
@@ -41,6 +47,8 @@ class AppointmentController extends Controller
      */
     public function store(StoreAppointmentRequest $request)
     {
+        $user = auth()->user();
+
         $appointment = new Appointment();
         $appointment->patient()->associate($request->user());
         $appointment->doctor_id = $request->doctor_id;
@@ -48,7 +56,7 @@ class AppointmentController extends Controller
         $appointment->message = $request->message;
         $appointment->save();
 
-        return redirect()->route('appointment.index')->with('status', 'Appointment saved successfully.');
+        return redirect()->route('home')->with('status', 'Appointment saved successfully.');
     }
 
     /**

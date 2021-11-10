@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('appointments')->group(function () {
         Route::get('/', [AppointmentController::class, 'index'])->name('appointment.index');
-        Route::get('/create', [AppointmentController::class, 'create'])->name('appointment.create');
+        Route::get('/create/{id}', [AppointmentController::class, 'create'])->name('appointment.create');
         Route::post('/', [AppointmentController::class, 'store'])->name('appointment.store');
 
         Route::prefix('{appointment}')->group(function () {

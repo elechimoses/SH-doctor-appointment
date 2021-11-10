@@ -6,20 +6,25 @@
           Book An Appointment Now
         </div>
         <div class="card-body">
-          <form action="" method="POST">
+          <form action="store" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Your Full Name</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Your Full Name">
+                <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->fullname }}" disabled>
             </div>
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                <input type="email" class="form-control" id="exampleFormControlInput1" value="{{ Auth::user()->email }}" disabled>
             </div>
             <div class="mb-3">
                 <label for="subject" class="form-label">Subject</label>
                 <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject of the Appointment">
             </div>
+            @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $subject}}</strong>
+                                    </span>
+                                @enderror
             <div class="mb-3">
                 <label for="message" class="form-label">Message</label>
                 <textarea class="form-control" id="message" name="message" rows="3"></textarea>
@@ -37,9 +42,10 @@
                 <label for="subject" class="form-label">Select Date</label>
                 <input type="date" class="form-control" id="appointment_time" name="appointment_time" placeholder="Select Date">
             </div>
+            <button class="btn btn-primary">Book Now</button>
           </form>
 
-          <a href="#" class="btn btn-primary">Book Now</a>
+         
 
         </div>
       </div>

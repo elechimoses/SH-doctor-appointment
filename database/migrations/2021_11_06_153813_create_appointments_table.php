@@ -23,7 +23,6 @@ class CreateAppointmentsTable extends Migration
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

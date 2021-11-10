@@ -17,12 +17,12 @@ class UserSeeder extends Seeder
     {
         $roles = collect(['admin', 'doctor', 'patient']);
 
-        User::factory()
-            ->count(10)
-            // ->role('doctor') // add this if you want only doctors, but remember to comment out the state function
-            ->state(new Sequence(
-                fn () => ['role' => $roles->random()],
-            ))
-            ->create();
+        // User::factory()
+        //     ->count(10)
+        //     // ->role('doctor') // add this if you want only doctors, but remember to comment out the state function
+        //     ->state(new Sequence(
+        //         fn () => ['role' => $roles->random()],
+        //     ))
+        //     ->create();
     }
 }

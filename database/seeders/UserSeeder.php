@@ -19,6 +19,7 @@ class UserSeeder extends Seeder
 
         User::factory()
             ->count(10)
+            // ->role('doctor') // add this if you want only doctors, but remember to comment out the state function
             ->state(new Sequence(
                 fn () => ['role' => $roles->random()],
             ))

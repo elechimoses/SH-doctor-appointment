@@ -38,4 +38,19 @@ class UserFactory extends Factory
             ];
         });
     }
+
+    /**
+     * Indicate that the specified model's role.
+     *
+     * @param string $role
+     * @return \Illuminate\Database\Eloquent\Factories\Factory
+     */
+    public function role(string $role)
+    {
+        return $this->state(function (array $attributes) use ($role) {
+            return [
+                'role' => $role,
+            ];
+        });
+    }
 }

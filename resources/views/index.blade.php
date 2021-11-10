@@ -3,14 +3,15 @@
 
 @section('content')
 
-<div class="container my-5">
+<div class="container">
+  <div class="container my-5">
     <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
       <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
         <h1 class="display-4 fw-bold lh-1">Doctors without Borders</h1>
         <p class="lead">Doctors Appointment and Booking System.<br> Doctor appointment software is one of those medical technologies that actually make the lives of patients, doctors, and administration easier.</p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-          <button type="button" class="btn btn-outline-primary btn-lg px-4 me-md-2 mr-3 fw-bold">Book an Appointment</button>
-          <a href="{{ route('login')}}" class="btn btn-outline-secondary btn-lg px-4">Register Now</a>
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold">Book an Appointment</button>
+          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Register Now</button>
         </div>
       </div>
       <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden shadow-lg">
@@ -19,48 +20,43 @@
     </div>
   </div>
 
-  <div class="container px-4 py-5" id="hanging-icons">
-    <h2 class="pb-2 border-bottom">Features</h2>
-    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-      <div class="col d-flex align-items-start">
-        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
-          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
-        </div>
-        <div>
-          <h2>Fast and Secured</h2>
-          <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-          <a href="#" class="btn btn-primary">
-            Primary button
-          </a>
+  <!--List of Doctors-->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img src="img/dr1.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Hi, I'm Doctor Fred.</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="{{ route('appointment.create') }}" class="btn btn-primary">Book Appointment</a>
+          </div>
         </div>
       </div>
-      <div class="col d-flex align-items-start">
-        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
-          <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"/></svg>
-        </div>
-        <div>
-          <h2>Doctors Appointment</h2>
-          <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-          <a href="#" class="btn btn-primary">
-            Primary button
-          </a>
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img src="img/dr3.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Hi, I'm Doctor Ibrahim</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="{{ route('appointment.create') }}" class="btn btn-primary">Book Appointment</a>
+          </div>
         </div>
       </div>
-      <div class="col d-flex align-items-start">
-        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
-          <svg class="bi" width="1em" height="1em"><use xlink:href="#tools"/></svg>
-        </div>
-        <div>
-          <h2>24/7 Customer Support</h2>
-          <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-          <a href="#" class="btn btn-primary">
-            Primary button
-          </a>
+      <div class="col-md-4">
+        <div class="card" style="width: 18rem;">
+          <img src="img/dr4.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Hi, I'm Doctor Babalola</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="{{ route('appointment.create') }}" class="btn btn-primary">Book Appointment</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
+  
   <div class="container px-4 py-5" id="hanging-icons">
     <h2 class="pb-2 border-bottom">Contact Us</h2>
     <form>
@@ -81,8 +77,9 @@
             <label class="form-label">Comment</label>
             <textarea name="comment" class="form-control" cols="30" rows="10"></textarea>
           </div>
-        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
   </div>
+</div>
 
 @endsection

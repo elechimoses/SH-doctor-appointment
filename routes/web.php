@@ -22,7 +22,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::middleware('auth:sanctum')->group(function () {
+Route::middleware('auth')->group(function () {
     Route::get('home', [HomeController::class, 'index'])->name('home');
 
     Route::prefix('appointments')->group(function () {

@@ -10,7 +10,9 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens;
+    use HasFactory;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -47,4 +49,40 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Get the associating appointments for the patient or doctor.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function appointments()
+    {
+        if ($this->role === 'patient') {
+            return $this->hasMany(Appointment::class, 'patient_id');
+        }
+
+        return $this->hasMany(Appointment::class, 'doctor_id');
+    }
+
+    /**
+     * Scope a query to only include patients as users.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeAsPatient($query)
+    {
+        return $query->where('role', 'patient');
+    }
+
+    /**
+     * Scope a query to only include doctors as users.
+     *
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeAsDoctor($query)
+    {
+        return $query->where('role', 'doctor');
+    }
 }

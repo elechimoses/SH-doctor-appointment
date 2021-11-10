@@ -86,8 +86,6 @@ class AppointmentController extends Controller
      */
     public function update(UpdateAppointmentRequest $request, Appointment $appointment)
     {
-        $appointment = new Appointment();
-        $appointment->patient()->associate($request->user());
         $appointment->doctor_id = $request->doctor_id;
         $appointment->subject = $request->subject;
         $appointment->message = $request->message;

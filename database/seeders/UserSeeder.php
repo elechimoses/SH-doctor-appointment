@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
     {
         $roles = collect(['admin', 'doctor', 'patient']);
 
-        $users = User::factory()
+        User::factory()
             ->count(10)
             ->state(new Sequence(
                 fn () => ['role' => $roles->random()],

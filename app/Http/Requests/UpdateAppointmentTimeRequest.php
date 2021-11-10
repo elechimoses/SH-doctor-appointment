@@ -13,7 +13,7 @@ class UpdateAppointmentTimeRequest extends FormRequest
      */
     public function authorize()
     {
-        return $this->user()->role === 'doctor';
+        return $this->user()->role === 'doctor' && $this->user()->id === $this->appointment->doctor_id;
     }
 
     /**
